@@ -1,5 +1,14 @@
 ---
 const pageTitle ="Sobre mí";
+
+const identity ={
+  firstname: "Omar Aguila Ocampo",
+  country: "México",
+  occupation: "Desarrollador web",
+  hobbies: ["leer", "aprender cosas nuevas", "jugar videojuegos"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express", "MongoDB"];
 ---
 
 <html lang="es">
@@ -11,7 +20,10 @@ const pageTitle ="Sobre mí";
     <title>{pageTitle}</title>
   </head>
   <body>
-    
+
+    <a href="/">Inicio</a>
+    <a href="/about/">Sobre mi</a>
+    <a href="/blog/">Blog</a>
     
     <h1>{pageTitle}</h1>
     <h2>... ¡y mi nuevo sitio Astro!</h2>
@@ -20,10 +32,18 @@ const pageTitle ="Sobre mí";
   
     <p>Este sitio se irá actualizando a medida que vaya completando más partes del tutorial, ¡así que no dejes de visitarlo para ver cómo va mi viaje!</p>
     
-
-    <a href="/">Inicio</a>
-    <a href="/about/">Sobre mi</a>
-    <a href="/blog/">Blog</a>
+    <p>He aquí algunos datos sobre mí:</p>
+    <ul>
+      <li>Me llamo {identity.firstName}.</li>
+      <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 &&
+        <li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+      }
+    </ul>
+    <p>Mis habilidades son:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
 
 
   </body>
